@@ -1,20 +1,17 @@
 # Alliants’ FizzBuzz challenge
 
-**NB:** This file is provided [as a PDF too](https://github.com/Alliants/codekata/tree/master/01_FizzBuzz/solution.pdf)
-
-#
-Here's a roundup of FizzBuzz and some of the things that I found with the exercise. And a small writeup of what you saw (for non-programmers & programmers!). 
+Here's a roundup of FizzBuzz and some of the things that I found with the exercise. And a small writeup of what you saw (for non-programmers & programmers!).
 
 ### Assignment
 The first thing non-programmers should've seen are variables, which are names for things stored in memory (RAM). Variables in ruby are lowercase words. For example:
 
     number = 10
 
-This assigns the word number to the value ten, and places 10 within memory. Next time you want to access that memory location, you can just use the variable number. If another part of the program changes the variable - by resigning it, calling `number` again in the program will give us the new number. 
+This assigns the word number to the value ten, and places 10 within memory. Next time you want to access that memory location, you can just use the variable number. If another part of the program changes the variable - by resigning it, calling `number` again in the program will give us the new number.
 
 ### Testing for Fizz, Buzz or both
-The core of FizzBuzz is the part which tests a number to see whether it is 
-The most common approach was an **if/else ladder**. This is where a if statement is followed by successive else conditions. If none were met, the number was printed at the end. 
+The core of FizzBuzz is the part which tests a number to see whether it is
+The most common approach was an **if/else ladder**. This is where a if statement is followed by successive else conditions. If none were met, the number was printed at the end.
 
     number = 10
     if number % 3 == 0 and number % 5 == 0
@@ -23,11 +20,11 @@ The most common approach was an **if/else ladder**. This is where a if statement
      puts "Fizz"
     elsif number % 5 == 0
      puts "Buzz"
-    else 
+    else
      puts number
     end
 
-a few people, instead of directly declaring the outcome noticed you can start with a blank string, and then add Fizz then Buzz to it if it meets the % 3 == 0 and % 5 ==0 conditions, eliminating the need to test for both. 
+a few people, instead of directly declaring the outcome noticed you can start with a blank string, and then add Fizz then Buzz to it if it meets the % 3 == 0 and % 5 ==0 conditions, eliminating the need to test for both.
 
     number = 10
     result = ""
@@ -36,7 +33,7 @@ a few people, instead of directly declaring the outcome noticed you can start wi
     end
     if number % 5 == 0
      result += "Fizz"
-    end 
+    end
 
 Ruby is very flexible in its semantics, using the principle of least surprise (basically - if it makes logical sense in the structure - it will work in Ruby). This is condensable to three lines. Chris had a similar solution.
 
@@ -45,7 +42,7 @@ Ruby is very flexible in its semantics, using the principle of least surprise (b
     result += "Fizz" if number % 3 == 0
     result += "Fizz" if number % 5 == 0
 
-However, by eliminating the if/else latter we now need to test if the variable result is empty to see whether we use the number. 
+However, by eliminating the if/else latter we now need to test if the variable result is empty to see whether we use the number.
 
     if result = ""
      result = number.to_s
@@ -62,7 +59,7 @@ There are many ways to iterate through a snippet of code. The most common in all
      number = number + 1
     end
 
-This will keep on looping until the number exceeds 100. A conditional loop is best known when there is a known stop condition and the number of iterations is not known. Although this will work, better would be another type of loop called the for loop. The for loop is different to a conditional loop in that is has an explicit loop counter. This is used when the number of times you want to loop is known. In a lot of scenarios the for and while loops can be used interchangeably. 
+This will keep on looping until the number exceeds 100. A conditional loop is best known when there is a known stop condition and the number of iterations is not known. Although this will work, better would be another type of loop called the for loop. The for loop is different to a conditional loop in that is has an explicit loop counter. This is used when the number of times you want to loop is known. In a lot of scenarios the for and while loops can be used interchangeably.
 
 Ruby has lots of cool ways of declaring for loops:
 
@@ -89,7 +86,7 @@ The classic for loop:
 
 Each of these uses the values `[1, 2, 3, 4, ... 100]` explicitly.
 
-Those more experienced in Ruby tended to use block iterator methods rather than looping constructs. These iterate over a list of values. The most simple is the each method, which iterates over a block (so no incrementer is required). 
+Those more experienced in Ruby tended to use block iterator methods rather than looping constructs. These iterate over a list of values. The most simple is the each method, which iterates over a block (so no incrementer is required).
 
     (1..100).each do |number|
       # do the test here!
@@ -109,7 +106,7 @@ So with that in mind, here's an example of the FizzBuzz code. Notice the test (t
 * * *
 
 ### Ed’s challenge!
-Ed pointed out that in _his_ day, players had to say [roman numerals](https://en.wikipedia.org/wiki/Roman_numerals) instead of the numbers; unless it was divisible by three (Fizz) or **seven** (Buzz) or both (FizzBuzz). In Ed's [day](https://en.wikipedia.org/wiki/Triassic) numbers hadn't been invented, nor had computers - so this was some challenge. To solve this, I reused the program above (changing 5 to a 7) and simply introducing a method to do a conversion from numeric data type to a roman numeral string. 
+Ed pointed out that in _his_ day, players had to say [roman numerals](https://en.wikipedia.org/wiki/Roman_numerals) instead of the numbers; unless it was divisible by three (Fizz) or **seven** (Buzz) or both (FizzBuzz). In Ed's [day](https://en.wikipedia.org/wiki/Triassic) numbers hadn't been invented, nor had computers - so this was some challenge. To solve this, I reused the program above (changing 5 to a 7) and simply introducing a method to do a conversion from numeric data type to a roman numeral string.
 
 Rather than show how this method works - it is the subject of the next test!! See the folder [02\_RomanNumerals](../02_RomanNumerals)!
 
