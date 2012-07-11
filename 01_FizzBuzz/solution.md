@@ -15,13 +15,13 @@ The most common approach was an **if/else ladder**. This is where a if statement
 
     number = 10
     if number % 3 == 0 and number % 5 == 0
-     puts "FizzBuzz"
+      puts "FizzBuzz"
     elsif number % 3 == 0
-     puts "Fizz"
+      puts "Fizz"
     elsif number % 5 == 0
-     puts "Buzz"
+      puts "Buzz"
     else
-     puts number
+      puts number
     end
 
 a few people, instead of directly declaring the outcome noticed you can start with a blank string, and then add Fizz then Buzz to it if it meets the % 3 == 0 and % 5 ==0 conditions, eliminating the need to test for both.
@@ -29,10 +29,10 @@ a few people, instead of directly declaring the outcome noticed you can start wi
     number = 10
     result = ""
     if number % 3 == 0
-     result += "Fizz"
+      result += "Fizz"
     end
     if number % 5 == 0
-     result += "Fizz"
+      result += "Fizz"
     end
 
 Ruby is very flexible in its semantics, using the principle of least surprise (basically - if it makes logical sense in the structure - it will work in Ruby). This is condensable to three lines. Chris had a similar solution.
@@ -45,7 +45,7 @@ Ruby is very flexible in its semantics, using the principle of least surprise (b
 However, by eliminating the if/else latter we now need to test if the variable result is empty to see whether we use the number.
 
     if result = ""
-     result = number.to_s
+      result = number.to_s
     end
 
 This tests if `result` is an empty string (of letters) and if so, it uses the number as the result. However the number is a different data type (a number). For non-programmers this may sound weird. But 10 the number is different from 10 the word (a one followed by a zero). Data types tell the programming language what can be done with the data. Numbers are good for arithmetic, strings for holding values like names, addresses and results like FizzBuzz. to_s is a ruby command to convert the number to a string.
@@ -54,34 +54,31 @@ This tests if `result` is an empty string (of letters) and if so, it uses the nu
 There are many ways to iterate through a snippet of code. The most common in all languages are the for and while loops. There are many types of ways to loop through code. You can use an if statement to create a loop. But there are cleverer ways. A traditional way is to use a conditional loop; this is where the program keeps on looping until a condition is met (_until_ loop), or stops being met (_while_ loop). An unconditional loop just keeps on looping until the program is forced to stop or crashes!
 
     while number < 101
-     # do the test here!
-     # then increase the number by 1!
-     number = number + 1
+      # do the test here!
+      # then increase the number by 1!
+      number = number + 1
     end
 
-This will keep on looping until the number exceeds 100. A conditional loop is best known when there is a known stop condition and the number of iterations is not known. Although this will work, better would be another type of loop called the for loop. The for loop is different to a conditional loop in that is has an explicit loop counter. This is used when the number of times you want to loop is known. In a lot of scenarios the for and while loops can be used interchangeably.
+This will keep on looping until the number exceeds 100. A conditional loop is best used when there is a known stop condition and the number of iterations is not known. Although this will work, better would be another type of loop called the _for_ loop. The for loop is different to a conditional loop in that is has an explicit loop counter. This is used when the number of times you want to loop is known. In a lot of scenarios the _for_ and _while_ loops can be used interchangeably.
 
 Ruby has lots of cool ways of declaring for loops:
 
 The classic for loop:
 
     for number in 1..100
-     # do the test here!
-     # then increase the number by 1!
+      # do the test here!
     end
 
 **Upto for loop**
 
     1.upto(100) do |number|
-     # do the test here!
-     # then increase the number by 1!
+      # do the test here!
     end
 
 **Times iterator**
 
     100.times do |number|
-     # do the test here!
-     # then increase the number by 1!
+      # do the test here!
     end
 
 Each of these uses the values `[1, 2, 3, 4, ... 100]` explicitly.
@@ -96,10 +93,10 @@ Those more experienced in Ruby tended to use block iterator methods rather than 
 So with that in mind, here's an example of the FizzBuzz code. Notice the test (to see if the number is empty) is reduced using the helper method .empty?
 
     (1..100).each do |number|
-     result = ""
-     result += "Fizz" if number % 3 == 0
-     result += "Buzz" if number % 5 == 0
-     puts ( result.empty? ? number : result)
+      result = ""
+      result += "Fizz" if number % 3 == 0
+      result += "Buzz" if number % 5 == 0
+      puts ( result.empty? ? number : result)
     end
 
 
